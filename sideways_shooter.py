@@ -9,6 +9,7 @@ class SidewaysShooter:
         """Initialize game and create resources."""
         pygame.init()
 
+        self.clock = pygame.time.Clock()
         self.screen = pygame.display.set_mode((1200, 800))
         pygame.display.set_caption("Sideways Shooter")
 
@@ -22,6 +23,7 @@ class SidewaysShooter:
 
             # Make the most recently drawn screen visible.
             pygame.display.flip()
+            self.clock.tick(60)
 
 if __name__ == "__main__":
     # Create a game instance and run the game.
