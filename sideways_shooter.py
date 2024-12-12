@@ -2,6 +2,8 @@ import sys
 
 import pygame
 
+from settings import Settings
+
 class SidewaysShooter:
     """Overall class to manage game assets and behavior."""
 
@@ -10,11 +12,11 @@ class SidewaysShooter:
         pygame.init()
 
         self.clock = pygame.time.Clock()
-        self.screen = pygame.display.set_mode((1200, 800))
-        pygame.display.set_caption("Sideways Shooter")
+        self.settings = Settings()
 
-        # Set background color
-        self.bg_color = (31, 40, 45)
+        self.screen = pygame.display.set_mode(
+            (self.settings.screen_width, self.settings.screen_height))
+        pygame.display.set_caption("Sideways Shooter")
 
     def run_game(self):
         """Start the main game loop."""
@@ -25,7 +27,7 @@ class SidewaysShooter:
                     sys.exit()
             
             # Redraw screen during each pass through the loop.
-            self.screen.fill(self.bg_color)
+            self.screen.fill(self.settings.bg_color)
 
             # Make the most recently drawn screen visible.
             pygame.display.flip()
