@@ -24,11 +24,8 @@ class SidewaysShooter:
     def run_game(self):
         """Start the main game loop."""
         while True:
-            # Watch four user input.
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    sys.exit()
-            
+            self._check_events()
+
             # Redraw screen during each pass through the loop.
             self.screen.fill(self.settings.bg_color)
             self.ship.blitme()
@@ -36,6 +33,12 @@ class SidewaysShooter:
             # Make the most recently drawn screen visible.
             pygame.display.flip()
             self.clock.tick(60)
+
+    def _check_events(self):
+        """Respond to keypresses."""
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
 
 if __name__ == "__main__":
     # Create a game instance and run the game.
