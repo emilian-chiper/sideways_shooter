@@ -37,9 +37,13 @@ class SidewaysShooter:
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_UP:
                     self.ship.moving_up = True
+                if event.key == pygame.K_DOWN:
+                    self.ship.moving_down = True
             elif event.type == pygame.KEYUP:
                 if event.key == pygame.K_UP:
                     self.ship.moving_up = False
+                if event.key == pygame.K_DOWN:
+                    self.ship.moving_down = False
 
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
