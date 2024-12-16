@@ -29,6 +29,13 @@ class SidewaysShooter:
             self._check_events()
             self.ship.update()
             self.bullets.update()
+
+            # Remove bullets that have disappeared.
+            for bullet in self.bullets.copy():
+                if bullet.rect.left >= self.screen.get_rect().right:
+                    self.bullets.remove(bullet)
+            print(len(self.bullets))
+
             self._update_screen()
             self.clock.tick(60)
 
